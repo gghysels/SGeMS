@@ -3,6 +3,8 @@
 Created on Tue Feb 18 16:28:00 2020
 
 @author: gghysels
+
+version 0.1.0
 """
 
 import numpy as np
