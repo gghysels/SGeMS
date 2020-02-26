@@ -4,7 +4,7 @@ Created on Tue Feb 18 16:28:00 2020
 
 @author: gghysels
 
-version 0.1.0
+v0.1.0
 """
 
 import numpy as np
@@ -28,7 +28,8 @@ def gslib_to_array(filename, savetxt=False, fmt='%.2f', plot=False):
     Returns
     -------
     array : numpy.ndarray
-        Array (4D) containing the layers times rows times cols array for each property.
+        Array containing the layers times rows times cols array for each property.
+        2D, 3D or 4D depending if property is 3D and/or multiple properties are present
         
     """
     
@@ -71,5 +72,8 @@ def gslib_to_array(filename, savetxt=False, fmt='%.2f', plot=False):
                 img = ax.imshow(array[p][l])
                 plt.colorbar(img)  
                 ax.set_title(properties[p]+'_l'+str(l+1))
+    
+    #remove single-dimensional entries from array        
+    array = np.squeeze(array)
         
     return array 
